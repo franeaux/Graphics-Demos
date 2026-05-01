@@ -24,15 +24,15 @@ A barebones render of the sponza scene rendered on a single thread. Repurposes t
 
 ### test-dx12
 
-A smoke-testing DirectX12 application used for testing purposes.
+A smoke-testing DirectX12 application used for testing purposes. (Currently on the backburner as part of a full project move to Linux)
 
 ### sponza-dx12
 
-A DirectX12 port of the 'sponza-brute' demo.
+A DirectX12 port of the 'sponza-brute' demo. (Currently on the backburner as part of a full project move to Linux)
 
 ## APIs Supported:
-- DirectX12
 - Vulkan
+- ~~DirectX12~~ (RIP but I plan on integrating VKD3D soon)
 
 
 ## Libraries Used:
@@ -43,10 +43,11 @@ A DirectX12 port of the 'sponza-brute' demo.
 - glm
 - dear Imgui
 
-(Place these libraries in C:\Users\%username%\Documents\Visual Studio 2022\Libraries)
-
 ## Compilation:
 
- - Install the Vulkan and Windows SDKs
- - Add "VULKAN_SDK" (with the value pointing to the SDK path) to your user variables list
- - Should compile pretty normally once you hit build
+ - Install the Vulkan SDK
+ - Run the self-descriptive scripts within the scripts folder to pull dependencies, compile shaders and then binaries for all demos
+
+## Running:
+
+Just run the binaries from their respective (build) directories, dont forget to compile shaders.

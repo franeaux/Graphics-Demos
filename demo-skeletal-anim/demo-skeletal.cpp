@@ -207,7 +207,7 @@ private:
 
 	bool framebufferResized = false;
 
-	std::chrono::steady_clock::time_point lastTime;
+	std::chrono::time_point<std::chrono::high_resolution_clock> lastTime;
 	float timeElapsed = 0.0f;
 
 	static void framebufferResizeCallback(GLFWwindow* window, int width, int height) {
@@ -393,11 +393,11 @@ private:
 
 		ShaderHelper vertShader;
 		vertShader.init("vert", Type::VERT, device);
-		vertShader.readCompiledSPIRVAndCreateShaderModule("../shaders/skeletal-anim/skel.vert.spv");
+		vertShader.readCompiledSPIRVAndCreateShaderModule("../../shaders/skeletal-anim/skel.vert.spv");
 
 		ShaderHelper fragShader;
 		fragShader.init("frag", Type::FRAG, device);
-		fragShader.readCompiledSPIRVAndCreateShaderModule("../shaders/skeletal-anim/skel.frag.spv");
+		fragShader.readCompiledSPIRVAndCreateShaderModule("../../shaders/skeletal-anim/skel.frag.spv");
 
 		VkPipelineShaderStageCreateInfo vertShaderStageInfo{};
 		vertShaderStageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
@@ -1267,7 +1267,7 @@ private:
 int main() {
 	try {
 		GLTFParser animParser;
-		animParser.parse("../models/SimpleSkin.gltf");
+		animParser.parse("../../models/SimpleSkin.gltf");
 		SkeletalAnimTest app(640, 480, animParser.drawables[0]);
 		app.run();
 	}

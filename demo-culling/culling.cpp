@@ -177,7 +177,7 @@ private:
 
 	CommandHelper commHelper;		std::mutex commMutex;
 
-	std::chrono::steady_clock::time_point lastTime = std::chrono::high_resolution_clock::now();
+	std::chrono::time_point<std::chrono::high_resolution_clock> lastTime = std::chrono::high_resolution_clock::now();
 
 	VkSurfaceKHR surface;
 	GLFWwindow* window;
@@ -469,11 +469,11 @@ private:
 		//normal pipeline
 		ShaderHelper vertShader;
 		vertShader.init("vert", Type::VERT, device);
-		vertShader.readCompiledSPIRVAndCreateShaderModule("../shaders/culling/model.vert.spv");
+		vertShader.readCompiledSPIRVAndCreateShaderModule("../../shaders/culling/model.vert.spv");
 
 		ShaderHelper fragShader;
 		fragShader.init("frag", Type::FRAG, device);
-		fragShader.readCompiledSPIRVAndCreateShaderModule("../shaders/culling/model.frag.spv");
+		fragShader.readCompiledSPIRVAndCreateShaderModule("../../shaders/culling/model.frag.spv");
 
 		VkPipelineShaderStageCreateInfo vertShaderStageInfo{};
 		vertShaderStageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
@@ -1517,7 +1517,7 @@ private:
 
 		ShaderHelper computeShader;
 		computeShader.init("compute", Type::COMP, device);
-		computeShader.readCompiledSPIRVAndCreateShaderModule("../shaders/culling/cull.comp.spv");
+		computeShader.readCompiledSPIRVAndCreateShaderModule("../../shaders/culling/cull.comp.spv");
 
 		VkPipelineShaderStageCreateInfo compShaderStageInfo{};
 		compShaderStageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
@@ -2230,7 +2230,7 @@ private:
 int main() {
 	try {
 		GLTFParser sponzaParser;
-		sponzaParser.parse("../models/WaterBottle.glb");
+		sponzaParser.parse("../../models/WaterBottle.glb");
 		CullingDemo app(1280, 720, sponzaParser.drawables);
 		app.run();
 	}

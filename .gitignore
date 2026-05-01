@@ -1,6 +1,8 @@
 x64-Debug/
 *.spv
 .vs/
+.kdev4/
+*/build/
 models/Sponza
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -44,3 +46,4 @@ bld/
 *.pidb
 *.svclog
 *.scc
+*.kdev4

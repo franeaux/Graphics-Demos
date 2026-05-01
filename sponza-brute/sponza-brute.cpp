@@ -358,7 +358,7 @@ private:
 
 	bool framebufferResized = false;
 
-	std::chrono::steady_clock::time_point lastTime;
+	std::chrono::time_point<std::chrono::high_resolution_clock> lastTime;
 
 	//Model model;
 
@@ -588,7 +588,7 @@ private:
 		vertShader.readFileGLSL("../shaders/sponza-pbr/shaderAll.vert");
 		vertShader.compileShaderToSPIRVAndCreateShaderModule();
 		*/
-		vertShader.readCompiledSPIRVAndCreateShaderModule("../shaders/sponza-pbr/vertAll.spv");
+		vertShader.readCompiledSPIRVAndCreateShaderModule("../../shaders/sponza-pbr/shaderAll.vert.spv");
 
 		ShaderHelper fragShader;
 		fragShader.init("frag", Type::FRAG, device);
@@ -596,7 +596,7 @@ private:
 		fragShader.readFileGLSL("../shaders/sponza-pbr/shaderAll.frag");
 		fragShader.compileShaderToSPIRVAndCreateShaderModule();
 		*/
-		fragShader.readCompiledSPIRVAndCreateShaderModule("../shaders//sponza-pbr/fragAll.spv");
+		fragShader.readCompiledSPIRVAndCreateShaderModule("../../shaders/sponza-pbr/shaderAll.frag.spv");
 
 		VkPipelineShaderStageCreateInfo vertShaderStageInfo{};
 		vertShaderStageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
@@ -4749,9 +4749,9 @@ private:
 int main() {
 	try {
 		GLTFParser sponzaParser;
-		sponzaParser.parse_sponza("../models/Sponza/glTF/Sponza.gltf");
+		sponzaParser.parse_sponza("../../models/Sponza/glTF/Sponza.gltf");
 		GalitefApp app(1280, 720, sponzaParser.drawables); 
-		app.run("../hdris/autumn_field_puresky_4k.hdr");
+		app.run("../../hdris/autumn_field_puresky_4k.hdr");
 	}
 	catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;

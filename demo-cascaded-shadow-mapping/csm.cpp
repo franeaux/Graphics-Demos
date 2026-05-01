@@ -311,7 +311,7 @@ private:
 	bool usePCF = false;
 	bool debugColors = false;
 
-	std::chrono::steady_clock::time_point lastTime;
+	std::chrono::time_point<std::chrono::high_resolution_clock> lastTime = std::chrono::high_resolution_clock::now();
 
 	glm::vec3 sponzaScaleMatrix = glm::vec3(0.000800000038);
 
@@ -589,11 +589,11 @@ private:
 
 		ShaderHelper vertShader;
 		vertShader.init("vert", Type::VERT, app.device);
-		vertShader.readCompiledSPIRVAndCreateShaderModule("../shaders/csm/model.vert.spv");
+		vertShader.readCompiledSPIRVAndCreateShaderModule("../../shaders/csm/model.vert.spv");
 
 		ShaderHelper fragShader;
 		fragShader.init("frag", Type::FRAG, app.device);
-		fragShader.readCompiledSPIRVAndCreateShaderModule("../shaders/csm/model.frag.spv");
+		fragShader.readCompiledSPIRVAndCreateShaderModule("../../shaders/csm/model.frag.spv");
 
 		struct SpecialisationData {
 			uint32_t enablePCF = 0;
@@ -1386,7 +1386,7 @@ private:
 	void setupShadowPass() {
 		ShaderHelper shadowMapVert;
 		shadowMapVert.init("shadow vert", Type::VERT, app.device);
-		shadowMapVert.readCompiledSPIRVAndCreateShaderModule("../shaders/csm/shadow.vert.spv");
+		shadowMapVert.readCompiledSPIRVAndCreateShaderModule("../../shaders/csm/shadow.vert.spv");
 
 		VkPipelineShaderStageCreateInfo vertShaderStageInfo{};
 		vertShaderStageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
@@ -2248,7 +2248,7 @@ private:
 int main() {
 	try {
 		GLTFParser sponzaParser;
-		sponzaParser.parse_sponza("../models/Sponza/glTF/Sponza.gltf");
+		sponzaParser.parse_sponza("../../models/Sponza/glTF/Sponza.gltf");
 		CSMDemo app(1280, 720, sponzaParser.drawables);
 		app.run();
 	}

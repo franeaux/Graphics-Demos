@@ -6,6 +6,7 @@
 #include<string>
 #include<optional>
 #include<algorithm>
+#include<limits>
 
 #include<vulkan/vulkan.h>
 
