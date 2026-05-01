@@ -24,3 +24,8 @@ echo "Building skeletal anim demo..."
 cmake -B build -G Ninja
 cmake --build build -- -j $(nproc)
 echo "Skeletal anim demo built!"
+cd ../demo-quick-cone-mapping
+echo "Building quick cone mapping demo..."
+cmake -B build -G Ninja
+cmake --build build -- -j $(nproc)
+echo "QCM demo built!"
