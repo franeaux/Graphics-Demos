@@ -200,7 +200,7 @@ private:
 	bool isShaderLatest = true;
 	bool debugColors = false;
 
-	std::chrono::steady_clock::time_point lastTime;
+	std::chrono::time_point<std::chrono::high_resolution_clock> lastTime;
 
 	static void framebufferResizeCallback(GLFWwindow* window, int width, int height) {
 		auto app = reinterpret_cast<QCMDemo*>(glfwGetWindowUserPointer(window));

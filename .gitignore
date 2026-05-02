@@ -1,8 +1,11 @@
 x64-Debug/
 *.spv
 .vs/
+.idea/
+.cache/
 .kdev4/
 */build/
+sources/
 models/Sponza
 [Dd]ebug/
 [Dd]ebugPublic/
